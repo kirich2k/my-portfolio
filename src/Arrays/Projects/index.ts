@@ -1,0 +1,51 @@
+const Projects = [
+    {
+        id: 1,
+        img: "../Img/Main/one.jpg",
+        name: "Jewelry market",
+        titleImg: "../Img/Main/redux.svg",
+        skills: "React, Redux-Toolkit, SCSS, Axios, TypeScript, JavaScript, CSS",
+        link: "https://github.com/kirich2k/my-market",
+    },
+    {
+        id: 2,
+        img: "../Img/Main/two.jpg",
+        name: "Landing site",
+        titleImg: "../Img/Main/html.svg",
+        skills: "HTML, CSS, SCSS, JavaScript",
+        link: "https://github.com/kirich2k/landing-page-2",
+    },
+    {
+        id: 3,
+        img: "../Img/Main/three.jpg",
+        name: "Site portfolio",
+        titleImg: "../Img/Main/reactTypescript.svg",
+        skills: "React, SCSS, TypeScript, JavaScript, CSS, BEM",
+        link: "https://github.com/kirich2k/portfolio",
+    },
+    {
+        id: 4,
+        img: "../Img/Main/four.jpg",
+        name: "Landing site",
+        titleImg: "../Img/Main/html.svg",
+        skills: "HTML, CSS, SCSS, JavaScript",
+        link: "https://github.com/kirich2k/landing-page",
+    },
+    {
+        id: 5,
+        img: "../Img/Main/five.jpg",
+        name: "Calculator",
+        titleImg: "../Img/Main/js.svg",
+        skills: "HTML, CSS, SCSS, JavaScript",
+        link: "https://github.com/kirich2k/calculator",
+    },
+    {
+        id: 6,
+        img: "../Img/Main/six.jpg",
+        name: "Tic tac toe game",
+        titleImg: "../Img/Main/js.svg",
+        skills: "HTML, CSS, SCSS, JavaScript",
+        link: "https://github.com/kirich2k/game",
+    },
+];
+export default Projects;
