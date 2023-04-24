@@ -14,7 +14,7 @@ function Skills() {
                         <p className="front__description">
                             JavaScript, TypeScript, ReactJS, Redux,
                             HTML, CSS, NPM, Yarn,
-                            SCSS
+                            SCSS, Node.js
                         </p>
                     </article>
                 </article>
