@@ -8,7 +8,7 @@ function Header() {
             <header className="header__container">
                 <Link to={"/"}>
                     <h2 className="header__logo">
-                        <span>Freelancer</span> portfolio
+                        <span>Kirich_2k</span> portfolio
                     </h2>
                 </Link>
                 <nav className="header__nav">

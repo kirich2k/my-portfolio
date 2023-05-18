@@ -60,6 +60,27 @@
     color: #0000ff;
 }
 
+.VK {
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.VK__title {
+    width: 100%;
+    font-size: 40px;
+    line-height: 52px;
+    text-align: center;
+}
+.VK__description {
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 27px;
+    color: #0000ff;
+}
+
 .mail {
     width: 100%;
     margin-top: 40px;

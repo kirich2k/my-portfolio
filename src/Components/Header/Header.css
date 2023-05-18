@@ -33,6 +33,7 @@
 .header__logo span {
   font-family: "Poppins-Bold";
   font-weight: bold;
+  color: #5c62ec;
 }
 .header__nav {
   max-width: 259px;

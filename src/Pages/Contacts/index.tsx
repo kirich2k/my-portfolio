@@ -21,8 +21,21 @@ function Contacts() {
                         <a
                             className="telegram__description"
                             href="https://t.me/Kirich_982"
+                            target='_blank'
+                            rel="noreferrer"
                         >
                             @Kirich_982
+                        </a>
+                    </article>
+                    <article className="contacts__back VK">
+                        <span className="VK__title">VK</span>
+                        <a
+                            className="VK__description"
+                            href="https://vk.com/kirich_982"
+                            target='_blank'
+                            rel="noreferrer"
+                        >
+                            vk.com/Kirich_982
                         </a>
                     </article>
                     <article className="contacts__back mail">
