@@ -111,3 +111,25 @@
     align-items: flex-start;
     color: #171718;
 }
+
+@media (max-width: 570px) {
+    .contacts__title {
+        font-size: 48px;
+        line-height: 60px;
+    }
+    .location__title, .telegram__title, .VK__title, .mail__title {
+        font-size: 34px;
+        line-height: 46px;
+    }
+    .location__description, .telegram__description, .VK__description, .mail__description {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
+@media (max-width: 350px) {
+    .front__description {
+        font-size: 14px;
+        line-height: 22px;
+    }
+}

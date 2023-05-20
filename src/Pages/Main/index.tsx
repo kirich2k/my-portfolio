@@ -33,12 +33,14 @@ function Main() {
                                     className="card__element"
                                     key={String(i.id)}
                                 >
-                                    <img
-                                        src={i.img}
-                                        alt="img"
-                                        className="card__img"
-                                        draggable={false}
-                                    />
+                                    <div className="card__img">
+                                        <img
+                                            src={i.img}
+                                            alt="img"
+                                            draggable={false}
+                                            loading="lazy"
+                                        />
+                                    </div>
                                     <span className="card__title">
                                         <>
                                             {i.name}
@@ -47,7 +49,11 @@ function Main() {
                                                     src={i.titleImg}
                                                     alt="img"
                                                     draggable={false}
-                                                    style={{ width: "auto", height: "31px", marginLeft: "10px"}}
+                                                    style={{
+                                                        width: "auto",
+                                                        height: "31px",
+                                                        marginLeft: "10px",
+                                                    }}
                                                 ></img>
                                             ) : (
                                                 console.log()

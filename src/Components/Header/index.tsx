@@ -1,8 +1,48 @@
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Header.css";
 
-function Header() {
+const Header: React.FC = () => {
     let url = useLocation();
+    const [burger, setBurger] = useState<boolean>(false);
+    const navList = useRef<null | HTMLElement>(null);
+    const elBurger = useRef<null | HTMLDivElement>(null);
+    const root = document.getElementById("root");
+    useEffect(() => {
+        window.addEventListener("resize", () => {
+            if (window.screen.width >= 570) {
+                if (root) {
+                    root.style.height = "unset";
+                    root.style.overflow = "unset";
+                }
+                elBurger.current?.classList.remove("-active");
+                navList.current?.classList.remove("-active");
+                setBurger(false);
+            }
+        });
+        return () => {
+            window.removeEventListener("resize", () => {
+            });
+        };
+    });
+
+    const activeBurger = () => {
+        if (root) {
+            if (!burger) {
+                root.style.height = "100vh";
+                root.style.overflow = "hidden";
+                elBurger.current?.classList.add("-active");
+                navList.current?.classList.add("-active");
+                setBurger(true);
+            } else {
+                root.style.height = "unset";
+                root.style.overflow = "unset";
+                elBurger.current?.classList.remove("-active");
+                navList.current?.classList.remove("-active");
+                setBurger(false);
+            }
+        } else console.error("Не найден root");
+    };
     return (
         <article className="header">
             <header className="header__container">
@@ -11,13 +51,14 @@ function Header() {
                         <span>Kirich_2k</span> portfolio
                     </h2>
                 </Link>
-                <nav className="header__nav">
+                <nav className="header__nav" ref={navList}>
                     <Link
                         to={"/"}
                         className={
                             "header__link" +
                             (url.pathname === "/" ? " -active" : "")
                         }
+                        onClick={() => activeBurger()}
                     >
                         Main
                     </Link>
@@ -27,6 +68,7 @@ function Header() {
                             "header__link" +
                             (url.pathname === "/skills" ? " -active" : "")
                         }
+                        onClick={() => activeBurger()}
                     >
                         Skills
                     </Link>
@@ -36,13 +78,21 @@ function Header() {
                             "header__link" +
                             (url.pathname === "/contacts" ? " -active" : "")
                         }
+                        onClick={() => activeBurger()}
                     >
                         Contacts
                     </Link>
                 </nav>
+                <div
+                    className="header__burger"
+                    ref={elBurger}
+                    onClick={() => activeBurger()}
+                >
+                    <span></span>
+                </div>
             </header>
         </article>
     );
-}
+};
 
 export default Header;
