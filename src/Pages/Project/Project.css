@@ -100,3 +100,12 @@
         height: 20px;
     }
 }
+
+@media (max-height: 1040px) {
+    .main#project {
+        height: 100%;
+    }
+    .project {
+        margin-bottom: 45px;
+    }
+}

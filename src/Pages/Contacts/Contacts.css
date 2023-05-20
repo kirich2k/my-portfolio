@@ -117,11 +117,17 @@
         font-size: 48px;
         line-height: 60px;
     }
-    .location__title, .telegram__title, .VK__title, .mail__title {
+    .location__title,
+    .telegram__title,
+    .VK__title,
+    .mail__title {
         font-size: 34px;
         line-height: 46px;
     }
-    .location__description, .telegram__description, .VK__description, .mail__description {
+    .location__description,
+    .telegram__description,
+    .VK__description,
+    .mail__description {
         font-size: 16px;
         line-height: 24px;
     }
@@ -135,5 +141,12 @@
     .front__description {
         font-size: 14px;
         line-height: 22px;
+    }
+}
+
+@media (max-height: 940px) {
+    .main#contacts {
+        height: 100%;
+        padding-bottom: 26px;
     }
 }
