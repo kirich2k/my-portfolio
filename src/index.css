@@ -76,6 +76,10 @@ button:active {
     src: url(./Fonts/DMSans/DMSans-Bold.ttf);
 }
 /*---------Стили---------*/
+#root {
+    width: 100%;
+}
+
 body {
     margin: 0;
     font-family: "DMSans";

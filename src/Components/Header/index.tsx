@@ -8,42 +8,52 @@ const Header: React.FC = () => {
     const navList = useRef<null | HTMLElement>(null);
     const elBurger = useRef<null | HTMLDivElement>(null);
     const root = document.getElementById("root");
+    const checkWindowSize = () => {
+        if (window.screen.width >= 570) {
+            console.log("больше 570");
+            if (root) {
+                root.style.position = "unset";
+            }
+            elBurger.current?.classList.remove("-active");
+            navList.current?.classList.remove("-active");
+            setBurger(false);
+        }
+    };
     useEffect(() => {
         window.addEventListener("resize", () => {
-            if (window.screen.width >= 570) {
-                if (root) {
-                    root.style.height = "unset";
-                    root.style.overflow = "unset";
-                }
-                elBurger.current?.classList.remove("-active");
-                navList.current?.classList.remove("-active");
-                setBurger(false);
-            }
+            checkWindowSize();
         });
         return () => {
             window.removeEventListener("resize", () => {});
         };
     });
 
+    const unFreeze = () => {
+        if (root) {
+            root.style.position = "unset";
+        } else {
+            console.log("Root не найден");
+        }
+    };
+
     const activeBurger = (arr: number) => {
         if (root) {
-            if (arr !== 1) {
+            if (arr !== 0) {
                 if (!burger) {
-                    root.style.height = "100vh";
-                    root.style.overflow = "hidden";
+                    root.style.position = "fixed";
                     elBurger.current?.classList.add("-active");
                     navList.current?.classList.add("-active");
                     setBurger(true);
+                    checkWindowSize();
                 } else {
-                    root.style.height = "unset";
-                    root.style.overflow = "unset";
+                    root.style.position = "unset";
                     elBurger.current?.classList.remove("-active");
                     navList.current?.classList.remove("-active");
                     setBurger(false);
                 }
+                checkWindowSize();
             } else {
-                root.style.height = "unset";
-                root.style.overflow = "unset";
+                root.style.position = "unset";
                 elBurger.current?.classList.remove("-active");
                 navList.current?.classList.remove("-active");
                 setBurger(false);
@@ -53,7 +63,7 @@ const Header: React.FC = () => {
     return (
         <article className="header">
             <header className="header__container">
-                <Link to={"/"}>
+                <Link to={"/"} onClick={() => unFreeze()}>
                     <h2 className="header__logo">
                         <span>Kirich_2k</span> portfolio
                     </h2>
@@ -65,7 +75,7 @@ const Header: React.FC = () => {
                             "header__link" +
                             (url.pathname === "/" ? " -active" : "")
                         }
-                        onClick={() => activeBurger(1)}
+                        onClick={() => activeBurger(0)}
                     >
                         Main
                     </Link>
@@ -75,7 +85,7 @@ const Header: React.FC = () => {
                             "header__link" +
                             (url.pathname === "/skills" ? " -active" : "")
                         }
-                        onClick={() => activeBurger(2)}
+                        onClick={() => activeBurger(1)}
                     >
                         Skills
                     </Link>
@@ -85,7 +95,7 @@ const Header: React.FC = () => {
                             "header__link" +
                             (url.pathname === "/contacts" ? " -active" : "")
                         }
-                        onClick={() => activeBurger(3)}
+                        onClick={() => activeBurger(2)}
                     >
                         Contacts
                     </Link>
@@ -93,7 +103,7 @@ const Header: React.FC = () => {
                 <div
                     className="header__burger"
                     ref={elBurger}
-                    onClick={() => activeBurger(0)}
+                    onClick={() => activeBurger(3)}
                 >
                     <span></span>
                 </div>
