@@ -9,7 +9,7 @@ const Header: React.FC = () => {
     const elBurger = useRef<null | HTMLDivElement>(null);
     const root = document.getElementById("root");
     const checkWindowSize = () => {
-        if (window.screen.width >= 570) {
+        if (window.innerWidth >= 570) {
             console.log("больше 570");
             if (root) {
                 root.style.position = "unset";
