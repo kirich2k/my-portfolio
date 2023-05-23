@@ -21,19 +21,26 @@ const Header: React.FC = () => {
             }
         });
         return () => {
-            window.removeEventListener("resize", () => {
-            });
+            window.removeEventListener("resize", () => {});
         };
     });
 
-    const activeBurger = () => {
+    const activeBurger = (arr: number) => {
         if (root) {
-            if (!burger) {
-                root.style.height = "100vh";
-                root.style.overflow = "hidden";
-                elBurger.current?.classList.add("-active");
-                navList.current?.classList.add("-active");
-                setBurger(true);
+            if (arr !== 1) {
+                if (!burger) {
+                    root.style.height = "100vh";
+                    root.style.overflow = "hidden";
+                    elBurger.current?.classList.add("-active");
+                    navList.current?.classList.add("-active");
+                    setBurger(true);
+                } else {
+                    root.style.height = "unset";
+                    root.style.overflow = "unset";
+                    elBurger.current?.classList.remove("-active");
+                    navList.current?.classList.remove("-active");
+                    setBurger(false);
+                }
             } else {
                 root.style.height = "unset";
                 root.style.overflow = "unset";
@@ -58,7 +65,7 @@ const Header: React.FC = () => {
                             "header__link" +
                             (url.pathname === "/" ? " -active" : "")
                         }
-                        onClick={() => activeBurger()}
+                        onClick={() => activeBurger(1)}
                     >
                         Main
                     </Link>
@@ -68,7 +75,7 @@ const Header: React.FC = () => {
                             "header__link" +
                             (url.pathname === "/skills" ? " -active" : "")
                         }
-                        onClick={() => activeBurger()}
+                        onClick={() => activeBurger(2)}
                     >
                         Skills
                     </Link>
@@ -78,7 +85,7 @@ const Header: React.FC = () => {
                             "header__link" +
                             (url.pathname === "/contacts" ? " -active" : "")
                         }
-                        onClick={() => activeBurger()}
+                        onClick={() => activeBurger(3)}
                     >
                         Contacts
                     </Link>
@@ -86,7 +93,7 @@ const Header: React.FC = () => {
                 <div
                     className="header__burger"
                     ref={elBurger}
-                    onClick={() => activeBurger()}
+                    onClick={() => activeBurger(0)}
                 >
                     <span></span>
                 </div>
